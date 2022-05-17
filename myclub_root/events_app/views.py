@@ -13,5 +13,7 @@ def index(request, year=date.today().year, month=date.today().month):
     month_name = calendar.month_name[month]
     title = "MyClub Event Calendar - %s %s" % (month_name, year)
     cal = HTMLCalendar().formatmonth(year, month)
-    mensaje = "<h1>%s</h1><p>%s</p>" % (title, cal)
-    return HttpResponse(mensaje)
+    mensaje = title
+    context_dict = {'title': mensaje, 'cal': cal}
+    template = 'base.html'
+    return render(request, template, context_dict)
