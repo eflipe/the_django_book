@@ -6,4 +6,9 @@
   <h1>{{ title }}</h1>
   <p>{% autoescape off %}{{ cal }}{% endautoescape %}</p>
   {% include "events_app/announcements.html" %}
+  <textarea onclick="this.focus();this.select()" style="width: 100%;">
+  {% filter force_escape %}
+    {% debug %}
+  {% endfilter %}
+  </textarea>
 {% endblock content %}
