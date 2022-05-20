@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from . import forms
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('contact/', forms.contact, name='contact'),
     path('', include('events_app.urls')),
 ]
